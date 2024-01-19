@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// il codice restituisce una vista 
 Route::get('/', function () {
-    return view('welcome');
-});
+
+    // passare dati tramite array associativo
+    $dati = config("data.home");
+
+    return view('home', $dati);
+})->name("home");
+
+// definisco la rotta  laravel 
+Route::get('/about-us', function () {
+    return view('about', config("data.about"));
+})->name("informazioni");
+
+// view, prende il contenuto della stringa e rimette a schermo
